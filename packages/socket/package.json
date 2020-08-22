@@ -41,5 +41,6 @@
   },
   "peerDependencies": {
     "phoenix": "^1.4.0"
-  }
+  },
+  "gitHead": "e61a9997cdc76c685cb5d96829320de0dd8f81c9"
 }
