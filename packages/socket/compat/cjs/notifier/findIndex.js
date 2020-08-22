@@ -1,15 +1,22 @@
-'use strict';
 
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-require('core-js/modules/es6.array.find-index');
-require('core-js/modules/es6.function.bind');
-var _newArrowCheck = _interopDefault(require('@babel/runtime/helpers/newArrowCheck'));
-var utilsComposite = require('@jumpn/utils-composite');
+function _interopDefault(ex) {
+  return ex && typeof ex === "object" && "default" in ex ? ex.default : ex;
+}
 
-var _this = undefined;
+require("core-js/modules/es6.array.find-index");
+require("core-js/modules/es6.function.bind");
+const _newArrowCheck = _interopDefault(
+  require("@babel/runtime/helpers/newArrowCheck")
+);
+const utilsComposite = require("@jumpn/utils-composite");
 
-var findIndex = function findIndex(notifiers, key, value // $FlowFixMe: flow is having some troubles to match hasIn signature (curry)
+const _this;
+
+const findIndex = function findIndex(
+  notifiers,
+  key,
+  value // $FlowFixMe: flow is having some troubles to match hasIn signature (curry)
 ) {
   _newArrowCheck(this, _this);
 
@@ -17,4 +24,4 @@ var findIndex = function findIndex(notifiers, key, value // $FlowFixMe: flow is 
 }.bind(undefined);
 
 module.exports = findIndex;
-//# sourceMappingURL=findIndex.js.map
+// # sourceMappingURL=findIndex.js.map

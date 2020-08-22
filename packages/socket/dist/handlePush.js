@@ -1,14 +1,17 @@
-import 'core-js/modules/es6.function.bind';
-import _newArrowCheck from '@babel/runtime/helpers/newArrowCheck';
-import 'phoenix';
+import "core-js/modules/es6.function.bind";
+import _newArrowCheck from "@babel/runtime/helpers/newArrowCheck";
+import "phoenix";
 
-var _this = undefined;
+const _this;
 
-var handlePush = function handlePush(push, handler) {
+const handlePush = function handlePush(push, handler) {
   _newArrowCheck(this, _this);
 
-  return push.receive("ok", handler.onSucceed).receive("error", handler.onError).receive("timeout", handler.onTimeout);
+  return push
+    .receive("ok", handler.onSucceed)
+    .receive("error", handler.onError)
+    .receive("timeout", handler.onTimeout);
 }.bind(undefined);
 
 export default handlePush;
-//# sourceMappingURL=handlePush.js.map
+// # sourceMappingURL=handlePush.js.map

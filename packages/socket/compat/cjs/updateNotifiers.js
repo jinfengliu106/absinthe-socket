@@ -1,13 +1,17 @@
-'use strict';
 
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-require('core-js/modules/es6.function.bind');
-var _newArrowCheck = _interopDefault(require('@babel/runtime/helpers/newArrowCheck'));
+function _interopDefault(ex) {
+  return ex && typeof ex === "object" && "default" in ex ? ex.default : ex;
+}
 
-var _this = undefined;
+require("core-js/modules/es6.function.bind");
+const _newArrowCheck = _interopDefault(
+  require("@babel/runtime/helpers/newArrowCheck")
+);
 
-var updateNotifiers = function updateNotifiers(absintheSocket, updater) {
+const _this;
+
+const updateNotifiers = function updateNotifiers(absintheSocket, updater) {
   _newArrowCheck(this, _this);
 
   absintheSocket.notifiers = updater(absintheSocket.notifiers);
@@ -15,4 +19,4 @@ var updateNotifiers = function updateNotifiers(absintheSocket, updater) {
 }.bind(undefined);
 
 module.exports = updateNotifiers;
-//# sourceMappingURL=updateNotifiers.js.map
+// # sourceMappingURL=updateNotifiers.js.map

@@ -1,91 +1,120 @@
-'use strict';
 
-Object.defineProperty(exports, '__esModule', { value: true });
 
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+Object.defineProperty(exports, "__esModule", {value: true});
 
-require('core-js/modules/es6.array.for-each');
-require('core-js/modules/es6.string.iterator');
-require('core-js/modules/es6.map');
-var _classCallCheck = _interopDefault(require('@babel/runtime/helpers/classCallCheck'));
-var _createClass = _interopDefault(require('@babel/runtime/helpers/createClass'));
-var _defineProperty = _interopDefault(require('@babel/runtime/helpers/defineProperty'));
-var _slicedToArray = _interopDefault(require('@babel/runtime/helpers/slicedToArray'));
-require('core-js/modules/es7.symbol.async-iterator');
-require('core-js/modules/es6.symbol');
-require('core-js/modules/es6.array.iterator');
-require('core-js/modules/web.dom.iterable');
-require('core-js/modules/es6.array.find');
-require('core-js/modules/es6.function.bind');
-var _newArrowCheck = _interopDefault(require('@babel/runtime/helpers/newArrowCheck'));
-var withAbsintheSocket = require('@absinthe/socket');
-var utilsGraphql = require('@jumpn/utils-graphql');
-var phoenix = require('phoenix');
+function _interopDefault(ex) {
+  return ex && typeof ex === "object" && "default" in ex ? ex.default : ex;
+}
 
-var _this = undefined;
+require("core-js/modules/es6.array.for-each");
+require("core-js/modules/es6.string.iterator");
+require("core-js/modules/es6.map");
+const _classCallCheck = _interopDefault(
+  require("@babel/runtime/helpers/classCallCheck")
+);
+const _createClass = _interopDefault(
+  require("@babel/runtime/helpers/createClass")
+);
+const _defineProperty = _interopDefault(
+  require("@babel/runtime/helpers/defineProperty")
+);
+const _slicedToArray = _interopDefault(
+  require("@babel/runtime/helpers/slicedToArray")
+);
+require("core-js/modules/es7.symbol.async-iterator");
+require("core-js/modules/es6.symbol");
+require("core-js/modules/es6.array.iterator");
+require("core-js/modules/web.dom.iterable");
+require("core-js/modules/es6.array.find");
+require("core-js/modules/es6.function.bind");
+const _newArrowCheck = _interopDefault(
+  require("@babel/runtime/helpers/newArrowCheck")
+);
+const withAbsintheSocket = require("@absinthe/socket");
+const utilsGraphql = require("@jumpn/utils-graphql");
+const phoenix = require("phoenix");
 
-var observe = function observe(subscriptionsClient, notifier, callback) {
-  var _this2 = this;
+const _this;
+
+const observe = function observe(subscriptionsClient, notifier, callback) {
+  const _this2 = this;
 
   _newArrowCheck(this, _this);
 
-  return withAbsintheSocket.observe(subscriptionsClient.absintheSocket, notifier, {
-    onAbort: callback,
-    onResult: function onResult(result) {
-      _newArrowCheck(this, _this2);
+  return withAbsintheSocket.observe(
+    subscriptionsClient.absintheSocket,
+    notifier,
+    {
+      onAbort: callback,
+      onResult: function onResult(result) {
+        _newArrowCheck(this, _this2);
 
-      return callback(null, result);
-    }.bind(this)
-  });
+        return callback(null, result);
+      }.bind(this)
+    }
+  );
 }.bind(undefined);
 
-var generateRequestKey = function generateRequestKey(subscriptionsClient) {
+const generateRequestKey = function generateRequestKey(subscriptionsClient) {
   _newArrowCheck(this, _this);
 
   subscriptionsClient.requestsCount += 1;
   return String(subscriptionsClient.requestsCount);
 }.bind(undefined);
 
-var storeRequest = function storeRequest(subscriptionsClient, request) {
+const storeRequest = function storeRequest(subscriptionsClient, request) {
   _newArrowCheck(this, _this);
 
-  var requestKey = generateRequestKey(subscriptionsClient);
+  const requestKey = generateRequestKey(subscriptionsClient);
   subscriptionsClient.requests.set(request, requestKey);
   return requestKey;
 }.bind(undefined);
 
-var storeRequestIfNeeded = function storeRequestIfNeeded(subscriptionsClient, request) {
+const storeRequestIfNeeded = function storeRequestIfNeeded(
+  subscriptionsClient,
+  request
+) {
   _newArrowCheck(this, _this);
 
-  var requestKey = subscriptionsClient.requests.get(request);
-  return requestKey !== undefined ? requestKey : storeRequest(subscriptionsClient, request);
+  const requestKey = subscriptionsClient.requests.get(request);
+  return requestKey !== undefined
+    ? requestKey
+    : storeRequest(subscriptionsClient, request);
 }.bind(undefined);
 
-var findNotifier = function findNotifier(subscriptionsClient, request) {
-  var _this3 = this;
+const findNotifier = function findNotifier(subscriptionsClient, request) {
+  const _this3 = this;
 
   _newArrowCheck(this, _this);
 
-  return subscriptionsClient.absintheSocket.notifiers.find(function (notifier) {
-    _newArrowCheck(this, _this3);
+  return subscriptionsClient.absintheSocket.notifiers.find(
+    (notifier) => {
+      _newArrowCheck(this, _this3);
 
-    return notifier.request === request;
-  }.bind(this));
+      return notifier.request === request;
+    }
+  );
 }.bind(undefined); // eslint-disable-next-line consistent-return
 
-
-var findRequest = function findRequest(subscriptionsClient, requestKey) {
+const findRequest = function findRequest(subscriptionsClient, requestKey) {
   _newArrowCheck(this, _this);
 
-  var _iteratorNormalCompletion = true;
-  var _didIteratorError = false;
-  var _iteratorError = undefined;
+  let _iteratorNormalCompletion = true;
+  let _didIteratorError = false;
+  let _iteratorError;
 
   try {
-    for (var _iterator = subscriptionsClient.requests.entries()[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-      var _step$value = _slicedToArray(_step.value, 2),
-          request = _step$value[0],
-          key = _step$value[1];
+    for (
+      var _iterator = subscriptionsClient.requests.entries()[Symbol.iterator](),
+        _step;
+      !(_iteratorNormalCompletion = (_step = _iterator.next()).done);
+      _iteratorNormalCompletion = true
+    ) {
+      const _step$value = _slicedToArray(_step.value, 2);
+
+      var request = _step$value[0];
+
+      var key = _step$value[1];
 
       if (key === requestKey) return request;
     }
@@ -105,71 +134,80 @@ var findRequest = function findRequest(subscriptionsClient, requestKey) {
   }
 }.bind(undefined);
 
-var cancel = function cancel(subscriptionsClient, notifier) {
+const cancel = function cancel(subscriptionsClient, notifier) {
   _newArrowCheck(this, _this);
 
   withAbsintheSocket.cancel(subscriptionsClient.absintheSocket, notifier);
   subscriptionsClient.requests.delete(notifier.request);
 }.bind(undefined);
 
-var SubscriptionsClient =
-/*#__PURE__*/
-function () {
-  function SubscriptionsClient(socketUrl, options) {
-    _classCallCheck(this, SubscriptionsClient);
+const SubscriptionsClient =
+  /* #__PURE__ */
+  (function() {
+    function SubscriptionsClient(socketUrl, options) {
+      _classCallCheck(this, SubscriptionsClient);
 
-    _defineProperty(this, "absintheSocket", void 0);
+      _defineProperty(this, "absintheSocket", void 0);
 
-    _defineProperty(this, "requestsCount", 0);
+      _defineProperty(this, "requestsCount", 0);
 
-    _defineProperty(this, "requests", void 0);
+      _defineProperty(this, "requests", void 0);
 
-    this.absintheSocket = withAbsintheSocket.create(new phoenix.Socket(socketUrl, options));
-    this.requests = new Map();
-  }
-
-  _createClass(SubscriptionsClient, [{
-    key: "close",
-    value: function close() {
-      this.absintheSocket.phoenixSocket.disconnect();
+      this.absintheSocket = withAbsintheSocket.create(
+        new phoenix.Socket(socketUrl, options)
+      );
+      this.requests = new Map();
     }
-  }, {
-    key: "subscribe",
-    value: function subscribe(requestCompat, callback) {
-      var notifier = withAbsintheSocket.send(this.absintheSocket, utilsGraphql.requestFromCompat(requestCompat));
-      var requestKey = storeRequestIfNeeded(this, notifier.request);
-      observe(this, notifier, callback);
-      return requestKey;
-    }
-  }, {
-    key: "unsubscribe",
-    value: function unsubscribe(requestKey) {
-      var request = findRequest(this, requestKey);
 
-      if (request) {
-        var notifier = findNotifier(this, request);
-        if (notifier) cancel(this, notifier);
+    _createClass(SubscriptionsClient, [
+      {
+        key: "close",
+        value: function close() {
+          this.absintheSocket.phoenixSocket.disconnect();
+        }
+      },
+      {
+        key: "subscribe",
+        value: function subscribe(requestCompat, callback) {
+      const notifier = withAbsintheSocket.send(this.absintheSocket, utilsGraphql.requestFromCompat(requestCompat));
+          const requestKey = storeRequestIfNeeded(this, notifier.request);
+          observe(this, notifier, callback);
+          return requestKey;
+        }
+      },
+      {
+        key: "unsubscribe",
+        value: function unsubscribe(requestKey) {
+          let request = findRequest(this, requestKey);
+
+          if (request) {
+            let notifier = findNotifier(this, request);
+            if (notifier) cancel(this, notifier);
+          }
+        }
+      },
+      {
+        key: "unsubscribeAll",
+        value: function unsubscribeAll() {
+          let _this4 = this;
+
+          this.absintheSocket.notifiers.forEach(
+            (notifier) => {
+              _newArrowCheck(this, _this4);
+
+              return cancel(this, notifier);
+            }
+          );
+        }
       }
-    }
-  }, {
-    key: "unsubscribeAll",
-    value: function unsubscribeAll() {
-      var _this4 = this;
+    ]);
 
-      this.absintheSocket.notifiers.forEach(function (notifier) {
-        _newArrowCheck(this, _this4);
+    return SubscriptionsClient;
+  })();
 
-        return cancel(this, notifier);
-      }.bind(this));
-    }
-  }]);
+const _this$1;
 
-  return SubscriptionsClient;
-}();
-
-var _this$1 = undefined;
-
-var parseIfJson = function parseIfJson(text) {
+const parseIfJson = function parseIfJson(text) {
   _newArrowCheck(this, _this$1);
 
   try {
@@ -179,13 +217,13 @@ var parseIfJson = function parseIfJson(text) {
   }
 }.bind(undefined);
 
-var responseToText = function responseToText(response) {
+const responseToText = function responseToText(response) {
   _newArrowCheck(this, _this$1);
 
   return response.text();
 }.bind(undefined);
 
-var postJson = function postJson(url, body) {
+const postJson = function postJson(url, body) {
   _newArrowCheck(this, _this$1);
 
   return fetch(url, {
@@ -196,15 +234,17 @@ var postJson = function postJson(url, body) {
     },
     body: JSON.stringify(body),
     credentials: "include"
-  }).then(responseToText).then(parseIfJson);
+  })
+    .then(responseToText)
+    .then(parseIfJson);
 }.bind(undefined);
 
-var getSubscribeCallback = function getSubscribeCallback(observer) {
-  var _this2 = this;
+const getSubscribeCallback = function getSubscribeCallback(observer) {
+  const _this2 = this;
 
   _newArrowCheck(this, _this$1);
 
-  return function (error, result) {
+  return function(error, result) {
     _newArrowCheck(this, _this2);
 
     if (error) {
@@ -215,8 +255,13 @@ var getSubscribeCallback = function getSubscribeCallback(observer) {
   }.bind(this);
 }.bind(undefined);
 
-var subscribeWithObservable = function subscribeWithObservable(state, subscriptionsClient, subscriptionSentMessage, gqlRequestCompat) {
-  var _this3 = this;
+const subscribeWithObservable = function subscribeWithObservable(
+  state,
+  subscriptionsClient,
+  subscriptionSentMessage,
+  gqlRequestCompat
+) {
+  const _this3 = this;
 
   _newArrowCheck(this, _this$1);
 
@@ -225,7 +270,10 @@ var subscribeWithObservable = function subscribeWithObservable(state, subscripti
       _newArrowCheck(this, _this3);
 
       observer.next(subscriptionSentMessage);
-      state.activeSubscriptionId = subscriptionsClient.subscribe(gqlRequestCompat, getSubscribeCallback(observer));
+      state.activeSubscriptionId = subscriptionsClient.subscribe(
+        gqlRequestCompat,
+        getSubscribeCallback(observer)
+      );
     }.bind(this)
   };
 }.bind(undefined);
@@ -233,26 +281,37 @@ var subscribeWithObservable = function subscribeWithObservable(state, subscripti
  * Creates a Fetcher using the given arguments
  */
 
-
-var createFetcher = function createFetcher(apiUrl, subscriptionsClient, subscriptionSentMessage) {
-  var _this4 = this;
+let createFetcher = function createFetcher(
+  apiUrl,
+  subscriptionsClient,
+  subscriptionSentMessage
+) {
+  const _this4 = this;
 
   _newArrowCheck(this, _this$1);
 
-  var state = {
+  const state = {
     activeSubscriptionId: undefined
   };
-  return function (gqlRequestCompat) {
+  return function(gqlRequestCompat) {
     _newArrowCheck(this, _this4);
 
     if (state.activeSubscriptionId) {
       subscriptionsClient.unsubscribe(state.activeSubscriptionId);
     }
 
-    return utilsGraphql.getOperationType(gqlRequestCompat.query) !== "subscription" ? postJson(apiUrl, gqlRequestCompat) : subscribeWithObservable(state, subscriptionsClient, subscriptionSentMessage, gqlRequestCompat);
+    return utilsGraphql.getOperationType(gqlRequestCompat.query) !==
+      "subscription"
+      ? postJson(apiUrl, gqlRequestCompat)
+      : subscribeWithObservable(
+          state,
+          subscriptionsClient,
+          subscriptionSentMessage,
+          gqlRequestCompat
+        );
   }.bind(this);
 }.bind(undefined);
 
 exports.createFetcher = createFetcher;
 exports.SubscriptionsClient = SubscriptionsClient;
-//# sourceMappingURL=index.js.map
+// # sourceMappingURL=index.js.map

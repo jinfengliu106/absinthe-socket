@@ -1,14 +1,15 @@
-import _toConsumableArray from '@babel/runtime/helpers/toConsumableArray';
-import _objectSpread from '@babel/runtime/helpers/objectSpread';
-import _objectWithoutProperties from '@babel/runtime/helpers/objectWithoutProperties';
-import 'core-js/modules/es6.function.bind';
-import _newArrowCheck from '@babel/runtime/helpers/newArrowCheck';
+import _toConsumableArray from "@babel/runtime/helpers/toConsumableArray";
+import _objectSpread from "@babel/runtime/helpers/objectSpread";
+import _objectWithoutProperties from "@babel/runtime/helpers/objectWithoutProperties";
+import "core-js/modules/es6.function.bind";
+import _newArrowCheck from "@babel/runtime/helpers/newArrowCheck";
 
-var _this = undefined;
+const _this;
 
-var observe = function observe(_ref, observer) {
-  var activeObservers = _ref.activeObservers,
-      rest = _objectWithoutProperties(_ref, ["activeObservers"]);
+const observe = function observe(_ref, observer) {
+  const activeObservers = _ref.activeObservers;
+
+  var rest = _objectWithoutProperties(_ref, ["activeObservers"]);
 
   _newArrowCheck(this, _this);
 
@@ -19,4 +20,4 @@ var observe = function observe(_ref, observer) {
 }.bind(undefined);
 
 export default observe;
-//# sourceMappingURL=observe.js.map
+// # sourceMappingURL=observe.js.map

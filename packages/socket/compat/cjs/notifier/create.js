@@ -1,12 +1,16 @@
-'use strict';
 
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-require('core-js/modules/es6.function.bind');
-var _newArrowCheck = _interopDefault(require('@babel/runtime/helpers/newArrowCheck'));
-var utilsGraphql = require('@jumpn/utils-graphql');
+function _interopDefault(ex) {
+  return ex && typeof ex === "object" && "default" in ex ? ex.default : ex;
+}
 
-var requestStatuses = {
+require("core-js/modules/es6.function.bind");
+const _newArrowCheck = _interopDefault(
+  require("@babel/runtime/helpers/newArrowCheck")
+);
+const utilsGraphql = require("@jumpn/utils-graphql");
+
+const requestStatuses = {
   canceled: "canceled",
   canceling: "canceling",
   pending: "pending",
@@ -14,14 +18,14 @@ var requestStatuses = {
   sending: "sending"
 };
 
-var _this = undefined;
+const _this;
 
-var createUsing = function createUsing(request, operationType) {
+const createUsing = function createUsing(request, operationType) {
   _newArrowCheck(this, _this);
 
   return {
-    operationType: operationType,
-    request: request,
+    operationType,
+    request,
     activeObservers: [],
     canceledObservers: [],
     isActive: true,
@@ -30,11 +34,11 @@ var createUsing = function createUsing(request, operationType) {
   };
 }.bind(undefined);
 
-var create = function create(request) {
+const create = function create(request) {
   _newArrowCheck(this, _this);
 
   return createUsing(request, utilsGraphql.getOperationType(request.operation));
 }.bind(undefined);
 
 module.exports = create;
-//# sourceMappingURL=create.js.map
+// # sourceMappingURL=create.js.map

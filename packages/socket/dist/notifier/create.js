@@ -1,8 +1,8 @@
-import 'core-js/modules/es6.function.bind';
-import _newArrowCheck from '@babel/runtime/helpers/newArrowCheck';
-import { getOperationType } from '@jumpn/utils-graphql';
+import "core-js/modules/es6.function.bind";
+import _newArrowCheck from "@babel/runtime/helpers/newArrowCheck";
+import {getOperationType} from "@jumpn/utils-graphql";
 
-var requestStatuses = {
+const requestStatuses = {
   canceled: "canceled",
   canceling: "canceling",
   pending: "pending",
@@ -10,14 +10,14 @@ var requestStatuses = {
   sending: "sending"
 };
 
-var _this = undefined;
+const _this;
 
-var createUsing = function createUsing(request, operationType) {
+const createUsing = function createUsing(request, operationType) {
   _newArrowCheck(this, _this);
 
   return {
-    operationType: operationType,
-    request: request,
+    operationType,
+    request,
     activeObservers: [],
     canceledObservers: [],
     isActive: true,
@@ -26,11 +26,11 @@ var createUsing = function createUsing(request, operationType) {
   };
 }.bind(undefined);
 
-var create = function create(request) {
+const create = function create(request) {
   _newArrowCheck(this, _this);
 
   return createUsing(request, getOperationType(request.operation));
 }.bind(undefined);
 
 export default create;
-//# sourceMappingURL=create.js.map
+// # sourceMappingURL=create.js.map

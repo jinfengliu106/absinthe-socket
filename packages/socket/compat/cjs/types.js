@@ -1,5 +1,3 @@
-'use strict';
+require("phoenix");
 
-require('phoenix');
-
-//# sourceMappingURL=types.js.map
+// # sourceMappingURL=types.js.map

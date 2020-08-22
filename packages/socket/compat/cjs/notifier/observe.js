@@ -1,18 +1,29 @@
-'use strict';
 
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var _toConsumableArray = _interopDefault(require('@babel/runtime/helpers/toConsumableArray'));
-var _objectSpread = _interopDefault(require('@babel/runtime/helpers/objectSpread'));
-var _objectWithoutProperties = _interopDefault(require('@babel/runtime/helpers/objectWithoutProperties'));
-require('core-js/modules/es6.function.bind');
-var _newArrowCheck = _interopDefault(require('@babel/runtime/helpers/newArrowCheck'));
+function _interopDefault(ex) {
+  return ex && typeof ex === "object" && "default" in ex ? ex.default : ex;
+}
 
-var _this = undefined;
+const _toConsumableArray = _interopDefault(
+  require("@babel/runtime/helpers/toConsumableArray")
+);
+const _objectSpread = _interopDefault(
+  require("@babel/runtime/helpers/objectSpread")
+);
+const _objectWithoutProperties = _interopDefault(
+  require("@babel/runtime/helpers/objectWithoutProperties")
+);
+require("core-js/modules/es6.function.bind");
+const _newArrowCheck = _interopDefault(
+  require("@babel/runtime/helpers/newArrowCheck")
+);
 
-var observe = function observe(_ref, observer) {
-  var activeObservers = _ref.activeObservers,
-      rest = _objectWithoutProperties(_ref, ["activeObservers"]);
+const _this;
+
+const observe = function observe(_ref, observer) {
+  const activeObservers = _ref.activeObservers;
+
+  var rest = _objectWithoutProperties(_ref, ["activeObservers"]);
 
   _newArrowCheck(this, _this);
 
@@ -23,4 +34,4 @@ var observe = function observe(_ref, observer) {
 }.bind(undefined);
 
 module.exports = observe;
-//# sourceMappingURL=observe.js.map
+// # sourceMappingURL=observe.js.map

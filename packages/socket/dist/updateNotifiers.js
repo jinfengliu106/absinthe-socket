@@ -1,9 +1,9 @@
-import 'core-js/modules/es6.function.bind';
-import _newArrowCheck from '@babel/runtime/helpers/newArrowCheck';
+import "core-js/modules/es6.function.bind";
+import _newArrowCheck from "@babel/runtime/helpers/newArrowCheck";
 
-var _this = undefined;
+const _this;
 
-var updateNotifiers = function updateNotifiers(absintheSocket, updater) {
+const updateNotifiers = function updateNotifiers(absintheSocket, updater) {
   _newArrowCheck(this, _this);
 
   absintheSocket.notifiers = updater(absintheSocket.notifiers);
@@ -11,4 +11,4 @@ var updateNotifiers = function updateNotifiers(absintheSocket, updater) {
 }.bind(undefined);
 
 export default updateNotifiers;
-//# sourceMappingURL=updateNotifiers.js.map
+// # sourceMappingURL=updateNotifiers.js.map

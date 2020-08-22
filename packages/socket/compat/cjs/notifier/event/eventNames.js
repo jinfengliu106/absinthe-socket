@@ -1,6 +1,4 @@
-'use strict';
-
-var eventNames = {
+const eventNames = {
   abort: "Abort",
   cancel: "Cancel",
   error: "Error",
@@ -9,4 +7,4 @@ var eventNames = {
 };
 
 module.exports = eventNames;
-//# sourceMappingURL=eventNames.js.map
+// # sourceMappingURL=eventNames.js.map

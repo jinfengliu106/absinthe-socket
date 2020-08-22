@@ -1,37 +1,43 @@
-'use strict';
 
-Object.defineProperty(exports, '__esModule', { value: true });
 
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+Object.defineProperty(exports, "__esModule", {value: true});
 
-require('core-js/modules/es6.function.bind');
-var _newArrowCheck = _interopDefault(require('@babel/runtime/helpers/newArrowCheck'));
+function _interopDefault(ex) {
+  return ex && typeof ex === "object" && "default" in ex ? ex.default : ex;
+}
 
-var absintheEventNames = {
+require("core-js/modules/es6.function.bind");
+const _newArrowCheck = _interopDefault(
+  require("@babel/runtime/helpers/newArrowCheck")
+);
+
+const absintheEventNames = {
   doc: "doc",
   unsubscribe: "unsubscribe"
 };
 
-var _this = undefined;
+const _this;
 
-var createAbsintheUnsubscribeEvent = function createAbsintheUnsubscribeEvent(payload) {
+const createAbsintheUnsubscribeEvent = function createAbsintheUnsubscribeEvent(
+  payload
+) {
   _newArrowCheck(this, _this);
 
   return {
-    payload: payload,
+    payload,
     name: absintheEventNames.unsubscribe
   };
 }.bind(undefined);
 
-var createAbsintheDocEvent = function createAbsintheDocEvent(payload) {
+const createAbsintheDocEvent = function createAbsintheDocEvent(payload) {
   _newArrowCheck(this, _this);
 
   return {
-    payload: payload,
+    payload,
     name: absintheEventNames.doc
   };
 }.bind(undefined);
 
 exports.createAbsintheDocEvent = createAbsintheDocEvent;
 exports.createAbsintheUnsubscribeEvent = createAbsintheUnsubscribeEvent;
-//# sourceMappingURL=absintheEventCreators.js.map
+// # sourceMappingURL=absintheEventCreators.js.map

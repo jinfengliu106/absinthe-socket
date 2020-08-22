@@ -1,13 +1,17 @@
-'use strict';
 
-Object.defineProperty(exports, '__esModule', { value: true });
 
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+Object.defineProperty(exports, "__esModule", {value: true});
 
-require('core-js/modules/es6.function.bind');
-var _newArrowCheck = _interopDefault(require('@babel/runtime/helpers/newArrowCheck'));
+function _interopDefault(ex) {
+  return ex && typeof ex === "object" && "default" in ex ? ex.default : ex;
+}
 
-var eventNames = {
+require("core-js/modules/es6.function.bind");
+const _newArrowCheck = _interopDefault(
+  require("@babel/runtime/helpers/newArrowCheck")
+);
+
+const eventNames = {
   abort: "Abort",
   cancel: "Cancel",
   error: "Error",
@@ -15,36 +19,36 @@ var eventNames = {
   start: "Start"
 };
 
-var _this = undefined;
+const _this;
 
-var createStartEvent = function createStartEvent(payload) {
+const createStartEvent = function createStartEvent(payload) {
   _newArrowCheck(this, _this);
 
   return {
-    payload: payload,
+    payload,
     name: eventNames.start
   };
 }.bind(undefined);
 
-var createResultEvent = function createResultEvent(payload) {
+const createResultEvent = function createResultEvent(payload) {
   _newArrowCheck(this, _this);
 
   return {
-    payload: payload,
+    payload,
     name: eventNames.result
   };
 }.bind(undefined);
 
-var createErrorEvent = function createErrorEvent(payload) {
+const createErrorEvent = function createErrorEvent(payload) {
   _newArrowCheck(this, _this);
 
   return {
-    payload: payload,
+    payload,
     name: eventNames.error
   };
 }.bind(undefined);
 
-var createCancelEvent = function createCancelEvent() {
+const createCancelEvent = function createCancelEvent() {
   _newArrowCheck(this, _this);
 
   return {
@@ -53,11 +57,11 @@ var createCancelEvent = function createCancelEvent() {
   };
 }.bind(undefined);
 
-var createAbortEvent = function createAbortEvent(payload) {
+const createAbortEvent = function createAbortEvent(payload) {
   _newArrowCheck(this, _this);
 
   return {
-    payload: payload,
+    payload,
     name: eventNames.abort
   };
 }.bind(undefined);
@@ -67,4 +71,4 @@ exports.createResultEvent = createResultEvent;
 exports.createErrorEvent = createErrorEvent;
 exports.createCancelEvent = createCancelEvent;
 exports.createAbortEvent = createAbortEvent;
-//# sourceMappingURL=eventCreators.js.map
+// # sourceMappingURL=eventCreators.js.map

@@ -1,4 +1,4 @@
-var requestStatuses = {
+const requestStatuses = {
   canceled: "canceled",
   canceling: "canceling",
   pending: "pending",
@@ -7,4 +7,4 @@ var requestStatuses = {
 };
 
 export default requestStatuses;
-//# sourceMappingURL=requestStatuses.js.map
+// # sourceMappingURL=requestStatuses.js.map

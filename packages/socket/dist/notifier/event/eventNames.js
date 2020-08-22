@@ -1,4 +1,4 @@
-var eventNames = {
+const eventNames = {
   abort: "Abort",
   cancel: "Cancel",
   error: "Error",
@@ -7,4 +7,4 @@ var eventNames = {
 };
 
 export default eventNames;
-//# sourceMappingURL=eventNames.js.map
+// # sourceMappingURL=eventNames.js.map

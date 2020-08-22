@@ -1,11 +1,14 @@
-import 'core-js/modules/es6.array.find';
-import 'core-js/modules/es6.function.bind';
-import _newArrowCheck from '@babel/runtime/helpers/newArrowCheck';
-import { hasIn } from '@jumpn/utils-composite';
+import "core-js/modules/es6.array.find";
+import "core-js/modules/es6.function.bind";
+import _newArrowCheck from "@babel/runtime/helpers/newArrowCheck";
+import {hasIn} from "@jumpn/utils-composite";
 
-var _this = undefined;
+const _this;
 
-var find = function find(notifiers, key, value // $FlowFixMe: flow is having some troubles to match hasIn signature (curry)
+const find = function find(
+  notifiers,
+  key,
+  value // $FlowFixMe: flow is having some troubles to match hasIn signature (curry)
 ) {
   _newArrowCheck(this, _this);
 
@@ -13,4 +16,4 @@ var find = function find(notifiers, key, value // $FlowFixMe: flow is having som
 }.bind(undefined);
 
 export default find;
-//# sourceMappingURL=find.js.map
+// # sourceMappingURL=find.js.map

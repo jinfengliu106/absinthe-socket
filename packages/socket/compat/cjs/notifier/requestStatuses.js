@@ -1,6 +1,4 @@
-'use strict';
-
-var requestStatuses = {
+const requestStatuses = {
   canceled: "canceled",
   canceling: "canceling",
   pending: "pending",
@@ -9,4 +7,4 @@ var requestStatuses = {
 };
 
 module.exports = requestStatuses;
-//# sourceMappingURL=requestStatuses.js.map
+// # sourceMappingURL=requestStatuses.js.map

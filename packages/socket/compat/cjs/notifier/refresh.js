@@ -1,35 +1,46 @@
-'use strict';
 
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var utilsArray = require('@jumpn/utils-array');
-require('core-js/modules/es6.array.find-index');
-require('core-js/modules/es6.function.bind');
-var _newArrowCheck = _interopDefault(require('@babel/runtime/helpers/newArrowCheck'));
-var utilsComposite = require('@jumpn/utils-composite');
+function _interopDefault(ex) {
+  return ex && typeof ex === "object" && "default" in ex ? ex.default : ex;
+}
 
-var _this = undefined;
+const utilsArray = require("@jumpn/utils-array");
+require("core-js/modules/es6.array.find-index");
+require("core-js/modules/es6.function.bind");
+const _newArrowCheck = _interopDefault(
+  require("@babel/runtime/helpers/newArrowCheck")
+);
+const utilsComposite = require("@jumpn/utils-composite");
 
-var findIndex = function findIndex(notifiers, key, value // $FlowFixMe: flow is having some troubles to match hasIn signature (curry)
+const _this;
+
+const findIndex = function findIndex(
+  notifiers,
+  key,
+  value // $FlowFixMe: flow is having some troubles to match hasIn signature (curry)
 ) {
   _newArrowCheck(this, _this);
 
   return notifiers.findIndex(utilsComposite.hasIn([key], value));
 }.bind(undefined);
 
-var _this$1 = undefined;
+const _this$1;
 
-var refresh = function refresh(notifier) {
-  var _this2 = this;
+const refresh = function refresh(notifier) {
+  const _this2 = this;
 
   _newArrowCheck(this, _this$1);
 
-  return function (notifiers) {
+  return function(notifiers) {
     _newArrowCheck(this, _this2);
 
-    return utilsArray.replace(findIndex(notifiers, "request", notifier.request), [notifier], notifiers);
+    return utilsArray.replace(
+      findIndex(notifiers, "request", notifier.request),
+      [notifier],
+      notifiers
+    );
   }.bind(this);
 }.bind(undefined);
 
 module.exports = refresh;
-//# sourceMappingURL=refresh.js.map
+// # sourceMappingURL=refresh.js.map

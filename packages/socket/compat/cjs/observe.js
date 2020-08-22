@@ -1,21 +1,32 @@
-'use strict';
 
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var _toConsumableArray = _interopDefault(require('@babel/runtime/helpers/toConsumableArray'));
-var _objectSpread = _interopDefault(require('@babel/runtime/helpers/objectSpread'));
-var _objectWithoutProperties = _interopDefault(require('@babel/runtime/helpers/objectWithoutProperties'));
-var utilsArray = require('@jumpn/utils-array');
-require('core-js/modules/es6.array.find-index');
-var utilsComposite = require('@jumpn/utils-composite');
-require('core-js/modules/es6.function.bind');
-var _newArrowCheck = _interopDefault(require('@babel/runtime/helpers/newArrowCheck'));
+function _interopDefault(ex) {
+  return ex && typeof ex === "object" && "default" in ex ? ex.default : ex;
+}
 
-var _this = undefined;
+const _toConsumableArray = _interopDefault(
+  require("@babel/runtime/helpers/toConsumableArray")
+);
+const _objectSpread = _interopDefault(
+  require("@babel/runtime/helpers/objectSpread")
+);
+const _objectWithoutProperties = _interopDefault(
+  require("@babel/runtime/helpers/objectWithoutProperties")
+);
+const utilsArray = require("@jumpn/utils-array");
+require("core-js/modules/es6.array.find-index");
+const utilsComposite = require("@jumpn/utils-composite");
+require("core-js/modules/es6.function.bind");
+const _newArrowCheck = _interopDefault(
+  require("@babel/runtime/helpers/newArrowCheck")
+);
 
-var observe = function observe(_ref, observer) {
-  var activeObservers = _ref.activeObservers,
-      rest = _objectWithoutProperties(_ref, ["activeObservers"]);
+const _this;
+
+const observe = function observe(_ref, observer) {
+  const activeObservers = _ref.activeObservers;
+
+  var rest = _objectWithoutProperties(_ref, ["activeObservers"]);
 
   _newArrowCheck(this, _this);
 
@@ -25,48 +36,55 @@ var observe = function observe(_ref, observer) {
   });
 }.bind(undefined);
 
-var _this$1 = undefined;
+const _this$1;
 
-var findIndex = function findIndex(notifiers, key, value // $FlowFixMe: flow is having some troubles to match hasIn signature (curry)
+const findIndex = function findIndex(
+  notifiers,
+  key,
+  value // $FlowFixMe: flow is having some troubles to match hasIn signature (curry)
 ) {
   _newArrowCheck(this, _this$1);
 
   return notifiers.findIndex(utilsComposite.hasIn([key], value));
 }.bind(undefined);
 
-var _this$2 = undefined;
+const _this$2;
 
-var refresh = function refresh(notifier) {
-  var _this2 = this;
+const refresh = function refresh(notifier) {
+  const _this2 = this;
 
   _newArrowCheck(this, _this$2);
 
-  return function (notifiers) {
+  return function(notifiers) {
     _newArrowCheck(this, _this2);
 
-    return utilsArray.replace(findIndex(notifiers, "request", notifier.request), [notifier], notifiers);
+    return utilsArray.replace(
+      findIndex(notifiers, "request", notifier.request),
+      [notifier],
+      notifiers
+    );
   }.bind(this);
 }.bind(undefined);
 
-var _this$3 = undefined;
+const _this$3;
 
-var updateNotifiers = function updateNotifiers(absintheSocket, updater) {
+const updateNotifiers = function updateNotifiers(absintheSocket, updater) {
   _newArrowCheck(this, _this$3);
 
   absintheSocket.notifiers = updater(absintheSocket.notifiers);
   return absintheSocket;
 }.bind(undefined);
 
-var _this$4 = undefined;
+const _this$4;
 
-var refreshNotifier = function refreshNotifier(absintheSocket, notifier) {
+const refreshNotifier = function refreshNotifier(absintheSocket, notifier) {
   _newArrowCheck(this, _this$4);
 
   updateNotifiers(absintheSocket, refresh(notifier));
   return notifier;
 }.bind(undefined);
 
-var _this$5 = undefined;
+const _this$5;
 
 /**
  * Observes given notifier using the provided observer
@@ -83,11 +101,11 @@ var _this$5 = undefined;
  *   onResult: logEvent("result")
  * });
  */
-var observe$1 = function observe$$1(absintheSocket, notifier, observer) {
+const observe$1 = function observe$$1(absintheSocket, notifier, observer) {
   _newArrowCheck(this, _this$5);
 
   return refreshNotifier(absintheSocket, observe(notifier, observer));
 }.bind(undefined);
 
 module.exports = observe$1;
-//# sourceMappingURL=observe.js.map
+// # sourceMappingURL=observe.js.map

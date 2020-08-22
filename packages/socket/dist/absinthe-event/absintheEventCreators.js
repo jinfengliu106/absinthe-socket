@@ -1,30 +1,32 @@
-import 'core-js/modules/es6.function.bind';
-import _newArrowCheck from '@babel/runtime/helpers/newArrowCheck';
+import "core-js/modules/es6.function.bind";
+import _newArrowCheck from "@babel/runtime/helpers/newArrowCheck";
 
-var absintheEventNames = {
+const absintheEventNames = {
   doc: "doc",
   unsubscribe: "unsubscribe"
 };
 
-var _this = undefined;
+const _this;
 
-var createAbsintheUnsubscribeEvent = function createAbsintheUnsubscribeEvent(payload) {
+const createAbsintheUnsubscribeEvent = function createAbsintheUnsubscribeEvent(
+  payload
+) {
   _newArrowCheck(this, _this);
 
   return {
-    payload: payload,
+    payload,
     name: absintheEventNames.unsubscribe
   };
 }.bind(undefined);
 
-var createAbsintheDocEvent = function createAbsintheDocEvent(payload) {
+const createAbsintheDocEvent = function createAbsintheDocEvent(payload) {
   _newArrowCheck(this, _this);
 
   return {
-    payload: payload,
+    payload,
     name: absintheEventNames.doc
   };
 }.bind(undefined);
 
-export { createAbsintheDocEvent, createAbsintheUnsubscribeEvent };
-//# sourceMappingURL=absintheEventCreators.js.map
+export {createAbsintheDocEvent, createAbsintheUnsubscribeEvent};
+// # sourceMappingURL=absintheEventCreators.js.map

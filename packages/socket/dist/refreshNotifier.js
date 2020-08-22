@@ -1,44 +1,51 @@
-import { replace } from '@jumpn/utils-array';
-import 'core-js/modules/es6.array.find-index';
-import { hasIn } from '@jumpn/utils-composite';
-import 'core-js/modules/es6.function.bind';
-import _newArrowCheck from '@babel/runtime/helpers/newArrowCheck';
+import {replace} from "@jumpn/utils-array";
+import "core-js/modules/es6.array.find-index";
+import {hasIn} from "@jumpn/utils-composite";
+import "core-js/modules/es6.function.bind";
+import _newArrowCheck from "@babel/runtime/helpers/newArrowCheck";
 
-var _this = undefined;
+const _this;
 
-var findIndex = function findIndex(notifiers, key, value // $FlowFixMe: flow is having some troubles to match hasIn signature (curry)
+const findIndex = function findIndex(
+  notifiers,
+  key,
+  value // $FlowFixMe: flow is having some troubles to match hasIn signature (curry)
 ) {
   _newArrowCheck(this, _this);
 
   return notifiers.findIndex(hasIn([key], value));
 }.bind(undefined);
 
-var _this$1 = undefined;
+const _this$1;
 
-var refresh = function refresh(notifier) {
-  var _this2 = this;
+const refresh = function refresh(notifier) {
+  const _this2 = this;
 
   _newArrowCheck(this, _this$1);
 
-  return function (notifiers) {
+  return function(notifiers) {
     _newArrowCheck(this, _this2);
 
-    return replace(findIndex(notifiers, "request", notifier.request), [notifier], notifiers);
+    return replace(
+      findIndex(notifiers, "request", notifier.request),
+      [notifier],
+      notifiers
+    );
   }.bind(this);
 }.bind(undefined);
 
-var _this$2 = undefined;
+const _this$2;
 
-var updateNotifiers = function updateNotifiers(absintheSocket, updater) {
+const updateNotifiers = function updateNotifiers(absintheSocket, updater) {
   _newArrowCheck(this, _this$2);
 
   absintheSocket.notifiers = updater(absintheSocket.notifiers);
   return absintheSocket;
 }.bind(undefined);
 
-var _this$3 = undefined;
+const _this$3;
 
-var refreshNotifier = function refreshNotifier(absintheSocket, notifier) {
+const refreshNotifier = function refreshNotifier(absintheSocket, notifier) {
   _newArrowCheck(this, _this$3);
 
   updateNotifiers(absintheSocket, refresh(notifier));
@@ -46,4 +53,4 @@ var refreshNotifier = function refreshNotifier(absintheSocket, notifier) {
 }.bind(undefined);
 
 export default refreshNotifier;
-//# sourceMappingURL=refreshNotifier.js.map
+// # sourceMappingURL=refreshNotifier.js.map
